@@ -1405,7 +1405,8 @@ ul {
     margin-bottom: 20px;
 }
 
-.artikel-card .artikel-content .btn-read {
+.artikel-card .artikel-content .btn-read,
+.artikel-card .artikel-body .btn-read {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -1413,15 +1414,17 @@ ul {
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    margin-top: auto;
+    margin-top: 20px;
     width: fit-content;
 }
 
-.artikel-card .artikel-content .btn-read:hover {
+.artikel-card .artikel-content .btn-read:hover,
+.artikel-card .artikel-body .btn-read:hover {
     color: #2c1810;
 }
 
-.artikel-card .artikel-content .btn-read:hover i {
+.artikel-card .artikel-content .btn-read:hover i,
+.artikel-card .artikel-body .btn-read:hover i {
     transform: translateX(4px);
 }
 
@@ -2432,6 +2435,20 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .layanan-card .card-body {
+        text-align: center;
+    }
+
+    .layanan-card .card-body .card-features {
+        justify-content: center;
+    }
+
+    .btn-detail-wrapper {
+        justify-content: center;
+    }
 }
 
 .btn-detail {
@@ -5642,7 +5659,7 @@ ul {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .share-container {
@@ -5710,6 +5727,7 @@ ul {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .author-info h4 {
@@ -6647,6 +6665,7 @@ ul {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .author-info h4 {
@@ -7584,6 +7603,7 @@ ul {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .author-info h4 {
