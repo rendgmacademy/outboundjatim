@@ -29,7 +29,7 @@
     <meta name="geo.position" content="-7.7956;112.2421">
     <meta name="ICBM" content="-7.7956, 112.2421">
 
-    
+
     <!-- PageSpeed Optimizations -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -43,905 +43,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            line-height: 1.8;
-            overflow-x: hidden;
-            background: #fdfdfd;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* NAVBAR (Same as global) */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            max-width: 1200px;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .navbar-brand .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-        }
-
-        .navbar-brand h1 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2c1810;
-        }
-
-        .navbar-brand h1 span {
-            color: #e67e22;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #444;
-            position: relative;
-            padding: 5px 0;
-            white-space: nowrap;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #e67e22;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: #e67e22;
-        }
-
-        .btn-hubungi {
-            background: linear-gradient(135deg, #e67e22, #f39c12);
-            color: #fff !important;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-            white-space: nowrap;
-            display: inline-block;
-            line-height: 1.2;
-            min-width: 140px;
-            text-align: center;
-        }
-
-        .btn-hubungi:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
-        }
-
-        .btn-hubungi::after {
-            display: none !important;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #2c1810;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
-
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .nav-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ARTICLE CONTENT */
-        .article-page {
-            padding: 120px 0 60px;
-        }
-
-        .article-container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .breadcrumb {
-            display: flex;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .breadcrumb a {
-            color: #e67e22;
-            font-weight: 500;
-        }
-
-        .breadcrumb span.separator {
-            color: #ccc;
-        }
-
-        .article-header {
-            margin-bottom: 35px;
-        }
-
-        .article-header h1 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #2c1810;
-            line-height: 1.3;
-            margin-bottom: 20px;
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: #777;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-
-        .article-meta .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .article-meta .meta-item i {
-            color: #e67e22;
-        }
-
-        .article-main-image {
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .article-main-image img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .image-caption {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #777;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* TOC */
-        .toc-container {
-            background: #fffaf5;
-            border: 1px solid #ffe8d6;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.05);
-        }
-
-        .toc-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
-
-        .toc-header h3 {
-            font-size: 1.2rem;
-            color: #2c1810;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0;
-        }
-
-        .toc-header h3 i {
-            color: #e67e22;
-        }
-
-        .toc-toggle {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: #e67e22;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .toc-toggle.collapsed {
-            transform: rotate(-180deg);
-        }
-
-        .toc-content {
-            transition: max-height 0.4s ease, opacity 0.4s ease;
-            max-height: 1000px;
-            opacity: 1;
-            overflow: hidden;
-        }
-
-        .toc-content.collapsed {
-            max-height: 0;
-            opacity: 0;
-            margin: 0;
-        }
-
-        .toc-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        .toc-list li {
-            margin-bottom: 10px;
-        }
-
-        .toc-list a {
-            color: #555;
-            font-size: 0.95rem;
-            display: block;
-            padding: 5px 10px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .toc-list a:hover {
-            background: #fff;
-            color: #e67e22;
-            padding-left: 15px;
-        }
-
-        .toc-list .toc-h3 {
-            padding-left: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* TYPOGRAPHY IN ARTICLE */
-        .article-body h2 {
-            font-size: 1.8rem;
-            color: #2c1810;
-            margin: 40px 0 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .article-body h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: #e67e22;
-            border-radius: 2px;
-        }
-
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #2c1810;
-            margin: 30px 0 15px;
-        }
-
-        .article-body p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            color: #444;
-        }
-
-        .article-body ul, .article-body ol {
-            margin: 0 0 20px 20px;
-            padding-left: 20px;
-            color: #444;
-        }
-
-        .article-body li {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        .article-body blockquote {
-            margin: 40px 0;
-            padding: 25px 30px;
-            background: #fffaf5;
-            border-left: 5px solid #e67e22;
-            border-radius: 0 12px 12px 0;
-            font-size: 1.15rem;
-            font-style: italic;
-            color: #555;
-            position: relative;
-        }
-
-        .article-body blockquote::before {
-            content: '\201C';
-            position: absolute;
-            top: 5px;
-            left: 15px;
-            font-size: 4rem;
-            color: rgba(230, 126, 34, 0.2);
-            line-height: 1;
-            font-family: serif;
-        }
-
-        /* BACA JUGA */
-        .baca-juga {
-            background: #f9f9f9;
-            padding: 20px 25px;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            margin: 35px 0;
-        }
-
-        .baca-juga strong {
-            display: block;
-            color: #e67e22;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .baca-juga ul {
-            margin: 0;
-            padding: 0;
-        }
-
-        .baca-juga li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .baca-juga li::before {
-            content: '\f0da';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #e67e22;
-        }
-
-        .baca-juga a {
-            color: #2c1810;
-            font-weight: 600;
-        }
-
-        .baca-juga a:hover {
-            color: #e67e22;
-            text-decoration: underline;
-        }
-
-        /* PROMO PHOTO */
-        .promo-photo {
-            margin: 45px 0;
-            text-align: center;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .promo-photo:hover {
-            transform: scale(1.02);
-        }
-
-        .promo-photo img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.15);
-            border: 2px solid #ffe8d6;
-        }
-
-        /* FAQ */
-        .faq-section {
-            margin-top: 50px;
-        }
-
-        .faq-item {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
-
-        .faq-question {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            color: #2c1810;
-            font-size: 1.05rem;
-        }
-
-        .faq-question i {
-            color: #e67e22;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background: #fafafa;
-        }
-
-        .faq-answer p {
-            margin: 0;
-            padding-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .faq-answer.active {
-            max-height: 500px;
-            padding-top: 15px;
-        }
-
-        /* TAGS & SHARE */
-        .article-footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .share-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .share-container span {
-            font-weight: 600;
-            color: #2c1810;
-        }
-
-        .social-share {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-share a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .social-share a:hover {
-            transform: translateY(-3px);
-        }
-
-        .share-wa { background: #25D366; }
-        .share-fb { background: #1877F2; }
-        .share-tw { background: #1DA1F2; }
-        .share-li { background: #0A66C2; }
-
-        /* AUTHOR BIO */
-        .author-bio {
-            display: flex;
-            gap: 25px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-            margin-top: 50px;
-            align-items: center;
-        }
-
-        .author-bio img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-size: 1.2rem;
-            color: #2c1810;
-            margin-bottom: 8px;
-        }
-
-        .author-info p {
-            color: #666;
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* RELATED ARTICLES */
-        .related-articles {
-            background: #f9f9f9;
-            padding: 60px 0;
-            margin-top: 60px;
-        }
-
-        .related-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .related-header h2 {
-            font-size: 2rem;
-            color: #2c1810;
-            margin-bottom: 10px;
-        }
-
-        .artikel-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .artikel-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-        }
-
-        .artikel-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.12);
-        }
-
-        .artikel-card .artikel-image {
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .artikel-card .artikel-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0;
-            transition: transform 0.5s ease;
-        }
-
-        .artikel-card:hover .artikel-image img {
-            transform: scale(1.05);
-        }
-
-        .artikel-card .artikel-content {
-            padding: 25px;
-        }
-
-        .artikel-card .artikel-content h3 {
-            font-size: 1.15rem;
-            color: #2c1810;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .artikel-card .artikel-content p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .artikel-card .artikel-content .btn-read {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            color: #e67e22;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .artikel-card .artikel-content .btn-read:hover {
-            color: #2c1810;
-        }
-
-        /* FOOTER (Same as global) */
-        .footer {
-            background: #2c1810;
-            color: #ccc;
-            padding: 60px 0 0;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-            gap: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .footer-col h3 {
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 30px;
-            height: 3px;
-            background: #f39c12;
-            border-radius: 2px;
-        }
-
-        .footer-about p {
-            font-size: 0.88rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            color: #aaa;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 10px;
-        }
-
-        .footer-social a {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-        }
-
-        .footer-social a:hover {
-            background: #e67e22;
-            color: #fff;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            font-size: 0.88rem;
-            color: #aaa;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-links a:hover {
-            color: #f39c12;
-            padding-left: 5px;
-        }
-
-        .footer-contact li {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 18px;
-            font-size: 0.88rem;
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        .footer-contact li i {
-            color: #f39c12;
-            font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 3px;
-            width: 18px;
-            text-align: center;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.82rem;
-            color: #777;
-        }
-
-        /* FLOATING */
-        .floating-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            width: 60px;
-            height: 60px;
-            background: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.6rem;
-            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
-            animation: pulse-wa 2s infinite;
-        }
-        @keyframes pulse-wa {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        .floating-top {
-            position: fixed;
-            bottom: 100px;
-            right: 35px;
-            z-index: 999;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .floating-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: #fff;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 22px;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                transition: right 0.3s ease;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .hamburger { display: flex; }
-            .article-header h1 { font-size: 1.8rem; }
-            .author-bio { flex-direction: column; text-align: center; }
-            .artikel-grid, .footer-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -950,7 +53,8 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">
-                <img src="assets/img/logo-outbound-jatim.webp" alt="Logo Outbound Jatim" style="height: 42px; width: auto; object-fit: contain;">
+                <img src="assets/img/logo-outbound-jatim.webp" alt="Logo Outbound Jatim"
+                    style="height: 42px; width: auto; object-fit: contain;">
                 <h1>Outbound<span>Jatim</span></h1>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -959,7 +63,8 @@
                 <li><a href="layanan.html">Layanan</a></li>
                 <li><a href="lokasi.html">Lokasi</a></li>
                 <li><a href="artikel.html" class="active">Artikel</a></li>
-                <li><a href="https://wa.me/6282211221909" class="btn-hubungi" target="_blank" rel="noopener">Hubungi Kami</a></li>
+                <li><a href="https://wa.me/6282211221909" class="btn-hubungi" target="_blank" rel="noopener">Hubungi
+                        Kami</a></li>
             </ul>
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
@@ -981,7 +86,6 @@
                 <h1>Panduan Lengkap Memilih Lokasi Outbound Terbaik di Jawa Timur</h1>
                 <div class="article-meta">
                     <div class="meta-item"><i class="far fa-calendar"></i> 25 Agustus 2026</div>
-                    <div class="meta-item"><i class="far fa-user"></i> Oleh Budi Santoso</div>
                     <div class="meta-item"><i class="far fa-clock"></i> Waktu Baca: 6 Menit</div>
                 </div>
             </div>
@@ -989,7 +93,8 @@
             <!-- Main Image -->
             <div class="article-main-image">
                 <img src="assets/img/artikel-lokasi-outbound.webp" alt="Persiapan Kegiatan Outbound">
-                <div class="image-caption">Persiapan yang matang akan membuat kegiatan outbound menjadi jauh lebih menyenangkan dan aman.</div>
+                <div class="image-caption">Persiapan yang matang akan membuat kegiatan outbound menjadi jauh lebih
+                    menyenangkan dan aman.</div>
             </div>
 
             <!-- Auto TOC Container -->
@@ -1008,133 +113,255 @@
             <!-- Article Body -->
             <div class="article-body">
 
-<p>Memilih lokasi <strong>outbound</strong> yang tepat merupakan langkah krusial dalam merencanakan kegiatan <em>team building</em> atau <em>company gathering</em>. Provinsi Jawa Timur menawarkan puluhan hingga ratusan destinasi menarik, mulai dari pegunungan berhawa sejuk seperti Batu dan Malang, hingga area hutan pinus di Trawas dan Pacet. Namun, dengan banyaknya pilihan tersebut, panitia penyelenggara seringkali merasa kebingungan untuk menentukan lokasi mana yang paling ideal dan sesuai dengan profil serta tujuan perusahaan. Keputusan yang keliru dalam memilih lokasi dapat mengakibatkan kegiatan menjadi kurang maksimal, peserta merasa tidak nyaman, hingga berpotensi menimbulkan pemborosan anggaran.</p>
+                <p>Memilih lokasi <strong>outbound</strong> yang tepat merupakan langkah krusial dalam merencanakan
+                    kegiatan <em>team building</em> atau <em>company gathering</em>. Provinsi Jawa Timur menawarkan
+                    puluhan hingga ratusan destinasi menarik, mulai dari pegunungan berhawa sejuk seperti Batu dan
+                    Malang, hingga area hutan pinus di Trawas dan Pacet. Namun, dengan banyaknya pilihan tersebut,
+                    panitia penyelenggara seringkali merasa kebingungan untuk menentukan lokasi mana yang paling ideal
+                    dan sesuai dengan profil serta tujuan perusahaan. Keputusan yang keliru dalam memilih lokasi dapat
+                    mengakibatkan kegiatan menjadi kurang maksimal, peserta merasa tidak nyaman, hingga berpotensi
+                    menimbulkan pemborosan anggaran.</p>
 
-<p>Oleh karena itu, sangat penting bagi panitia atau divisi HRD (Human Resources Development) untuk melakukan riset mendalam sebelum melakukan pemesanan (booking) lokasi. Proses pemilihan ini tidak hanya berpatokan pada keindahan pemandangan alamnya saja, melainkan harus mempertimbangkan berbagai aspek fundamental seperti keamanan, kenyamanan, kemudahan akses, ketersediaan fasilitas, serta kesesuaian dengan tema program yang akan diusung. Dalam panduan komprehensif ini, kami akan membedah secara rinci poin-poin krusial yang wajib Anda evaluasi saat memilih lokasi outbound terbaik di Jawa Timur.</p>
+                <p>Oleh karena itu, sangat penting bagi panitia atau divisi HRD (Human Resources Development) untuk
+                    melakukan riset mendalam sebelum melakukan pemesanan (booking) lokasi. Proses pemilihan ini tidak
+                    hanya berpatokan pada keindahan pemandangan alamnya saja, melainkan harus mempertimbangkan berbagai
+                    aspek fundamental seperti keamanan, kenyamanan, kemudahan akses, ketersediaan fasilitas, serta
+                    kesesuaian dengan tema program yang akan diusung. Dalam panduan komprehensif ini, kami akan membedah
+                    secara rinci poin-poin krusial yang wajib Anda evaluasi saat memilih lokasi outbound terbaik di Jawa
+                    Timur.</p>
 
-<h2>Mengapa Pemilihan Lokasi Outbound Sangat Penting?</h2>
-<p>Lokasi adalah "panggung" tempat seluruh rangkaian kegiatan outbound berlangsung. Atmosfer dan kondisi geografis dari lokasi tersebut akan secara langsung memengaruhi kondisi psikologis para peserta. Bayangkan jika Anda memilih lokasi yang sangat sulit dijangkau, dengan akses jalan yang rusak dan sempit. Sebelum kegiatan dimulai pun, energi peserta sudah terkuras habis di perjalanan. Hal ini tentu akan menurunkan antusiasme dan mood karyawan. Sebaliknya, lokasi yang nyaman, asri, dan memiliki fasilitas yang representatif akan membuat karyawan merasa dihargai, sehingga mereka dapat mengikuti setiap sesi dengan penuh semangat, ceria, dan terbuka untuk menerima nilai-nilai pembelajaran yang disisipkan dalam setiap permainan (games).</p>
+                <h2>Mengapa Pemilihan Lokasi Outbound Sangat Penting?</h2>
+                <p>Lokasi adalah "panggung" tempat seluruh rangkaian kegiatan outbound berlangsung. Atmosfer dan kondisi
+                    geografis dari lokasi tersebut akan secara langsung memengaruhi kondisi psikologis para peserta.
+                    Bayangkan jika Anda memilih lokasi yang sangat sulit dijangkau, dengan akses jalan yang rusak dan
+                    sempit. Sebelum kegiatan dimulai pun, energi peserta sudah terkuras habis di perjalanan. Hal ini
+                    tentu akan menurunkan antusiasme dan mood karyawan. Sebaliknya, lokasi yang nyaman, asri, dan
+                    memiliki fasilitas yang representatif akan membuat karyawan merasa dihargai, sehingga mereka dapat
+                    mengikuti setiap sesi dengan penuh semangat, ceria, dan terbuka untuk menerima nilai-nilai
+                    pembelajaran yang disisipkan dalam setiap permainan (games).</p>
 
-<h2>1. Sesuaikan dengan Tujuan Utama Kegiatan</h2>
-<p>Langkah pertama yang tidak boleh dilewatkan adalah mengidentifikasi apa tujuan utama dari penyelenggaraan kegiatan outbound tersebut. Setiap perusahaan memiliki permasalahan atau target (goals) yang berbeda-beda. Berdasarkan tujuan tersebut, Anda dapat mengklasifikasikan jenis lokasi yang paling relevan.</p>
+                <h2>1. Sesuaikan dengan Tujuan Utama Kegiatan</h2>
+                <p>Langkah pertama yang tidak boleh dilewatkan adalah mengidentifikasi apa tujuan utama dari
+                    penyelenggaraan kegiatan outbound tersebut. Setiap perusahaan memiliki permasalahan atau target
+                    (goals) yang berbeda-beda. Berdasarkan tujuan tersebut, Anda dapat mengklasifikasikan jenis lokasi
+                    yang paling relevan.</p>
 
-<h3>Tujuan Team Building dan Peningkatan Kinerja</h3>
-<p>Jika fokus utamanya adalah untuk <em>team building</em>, melatih kekompakan, memperbaiki komunikasi antar divisi yang sedang renggang, atau mengasah jiwa kepemimpinan (leadership), maka Anda membutuhkan lokasi yang memiliki lapangan terbuka yang sangat luas (ground area). Lokasi seperti ini memungkinkan fasilitator (trainer) untuk menyelenggarakan permainan-permainan yang membutuhkan banyak ruang gerak, seperti <em>trust fall</em>, <em>spider web</em>, atau simulasi strategi kelompok. Lapangan rumput yang datar dan bersih sangat direkomendasikan untuk menghindari risiko cedera selama sesi dinamika kelompok.</p>
+                <h3>Tujuan Team Building dan Peningkatan Kinerja</h3>
+                <p>Jika fokus utamanya adalah untuk <em>team building</em>, melatih kekompakan, memperbaiki komunikasi
+                    antar divisi yang sedang renggang, atau mengasah jiwa kepemimpinan (leadership), maka Anda
+                    membutuhkan lokasi yang memiliki lapangan terbuka yang sangat luas (ground area). Lokasi seperti ini
+                    memungkinkan fasilitator (trainer) untuk menyelenggarakan permainan-permainan yang membutuhkan
+                    banyak ruang gerak, seperti <em>trust fall</em>, <em>spider web</em>, atau simulasi strategi
+                    kelompok. Lapangan rumput yang datar dan bersih sangat direkomendasikan untuk menghindari risiko
+                    cedera selama sesi dinamika kelompok.</p>
 
-<h3>Tujuan Rekreasi dan Relaksasi</h3>
-<p>Berbeda halnya jika tujuan utama acara adalah sebagai bentuk apresiasi (reward) kepada karyawan setelah mencapai target tahunan atau sekadar <em>refreshing</em>. Untuk tujuan ini, faktor estetika dan kenyamanan harus menjadi prioritas. Pilihlah lokasi resor (resort), hotel berbintang, atau area wisata alam terpadu yang menawarkan pemandangan memukau, fasilitas kolam renang yang luas, area spa, hingga spot-spot foto (instagramable). Kegiatan outbound yang dilakukan pun biasanya bersifat ringan (fun games) yang tidak terlalu menguras tenaga.</p>
+                <h3>Tujuan Rekreasi dan Relaksasi</h3>
+                <p>Berbeda halnya jika tujuan utama acara adalah sebagai bentuk apresiasi (reward) kepada karyawan
+                    setelah mencapai target tahunan atau sekadar <em>refreshing</em>. Untuk tujuan ini, faktor estetika
+                    dan kenyamanan harus menjadi prioritas. Pilihlah lokasi resor (resort), hotel berbintang, atau area
+                    wisata alam terpadu yang menawarkan pemandangan memukau, fasilitas kolam renang yang luas, area spa,
+                    hingga spot-spot foto (instagramable). Kegiatan outbound yang dilakukan pun biasanya bersifat ringan
+                    (fun games) yang tidak terlalu menguras tenaga.</p>
 
-<blockquote>
-  "Lokasi outbound yang tepat adalah fondasi dari keberhasilan program team building. Alam yang asri membantu menurunkan stres, sementara fasilitas yang memadai memastikan kenyamanan peserta."
-</blockquote>
+                <blockquote>
+                    "Lokasi outbound yang tepat adalah fondasi dari keberhasilan program team building. Alam yang asri
+                    membantu menurunkan stres, sementara fasilitas yang memadai memastikan kenyamanan peserta."
+                </blockquote>
 
-<h2>2. Perhatikan Aksesibilitas dan Jarak Tempuh</h2>
-<p>Faktor kedua yang sangat vital adalah aksesibilitas menuju lokasi. Lokasi yang tersembunyi dan terpelosok mungkin menawarkan pemandangan alam yang sangat indah dan masih perawan (unspoiled), namun Anda harus memikirkan bagaimana armada transportasi (seperti bus pariwisata berukuran besar) dapat mencapai titik lokasi dengan aman. Beberapa rute pegunungan di Jawa Timur memiliki tanjakan curam, tikungan tajam, atau jalan yang terlalu sempit untuk dilewati oleh bus besar. Jika hal ini terjadi, peserta mungkin harus berganti menggunakan kendaraan kecil (shuttle car) yang akan menambah biaya dan memperlama waktu perjalanan.</p>
+                <h2>2. Perhatikan Aksesibilitas dan Jarak Tempuh</h2>
+                <p>Faktor kedua yang sangat vital adalah aksesibilitas menuju lokasi. Lokasi yang tersembunyi dan
+                    terpelosok mungkin menawarkan pemandangan alam yang sangat indah dan masih perawan (unspoiled),
+                    namun Anda harus memikirkan bagaimana armada transportasi (seperti bus pariwisata berukuran besar)
+                    dapat mencapai titik lokasi dengan aman. Beberapa rute pegunungan di Jawa Timur memiliki tanjakan
+                    curam, tikungan tajam, atau jalan yang terlalu sempit untuk dilewati oleh bus besar. Jika hal ini
+                    terjadi, peserta mungkin harus berganti menggunakan kendaraan kecil (shuttle car) yang akan menambah
+                    biaya dan memperlama waktu perjalanan.</p>
 
-<p>Selain itu, pertimbangkan juga jarak tempuh ideal dari kantor pusat menuju lokasi outbound. Waktu perjalanan yang direkomendasikan adalah tidak lebih dari 2 hingga 3 jam. Perjalanan yang terlalu lama akan membuat peserta kelelahan sebelum acara inti dimulai, apalagi jika terjebak kemacetan parah di akhir pekan. Sebagai contoh, jika kantor Anda berada di pusat kota Surabaya, kawasan Trawas (Mojokerto) atau Pacet bisa menjadi opsi logis karena hanya membutuhkan waktu sekitar 1,5 hingga 2 jam perjalanan melalui jalan tol.</p>
+                <p>Selain itu, pertimbangkan juga jarak tempuh ideal dari kantor pusat menuju lokasi outbound. Waktu
+                    perjalanan yang direkomendasikan adalah tidak lebih dari 2 hingga 3 jam. Perjalanan yang terlalu
+                    lama akan membuat peserta kelelahan sebelum acara inti dimulai, apalagi jika terjebak kemacetan
+                    parah di akhir pekan. Sebagai contoh, jika kantor Anda berada di pusat kota Surabaya, kawasan Trawas
+                    (Mojokerto) atau Pacet bisa menjadi opsi logis karena hanya membutuhkan waktu sekitar 1,5 hingga 2
+                    jam perjalanan melalui jalan tol.</p>
 
-<div class="baca-juga">
-    <strong>Baca Juga:</strong>
-    <ul>
-        <li><a href="manfaat-outbound-team-building.html">Manfaat Outbound untuk Team Building Perusahaan</a></li>
-        <li><a href="persiapan-sebelum-kegiatan-outbound.html">10 Hal yang Harus Dipersiapkan Sebelum Mengikuti Kegiatan Outbound</a></li>
-    </ul>
-</div>
-
-<h2>3. Cek Kelengkapan Fasilitas Pendukung</h2>
-<p>Sebagus apapun pemandangan alamnya, jika fasilitas dasar (basic amenities) tidak memadai, kegiatan outbound Anda akan berubah menjadi mimpi buruk. Panitia harus melakukan survei lokasi (technical meeting/site visit) jauh-jauh hari untuk memastikan kelengkapan dan kelayakan fasilitas berikut ini:</p>
-<ul>
-    <li><strong>Aula atau Ruang Pertemuan (Indoor Hall):</strong> Sangat krusial sebagai <em>plan B</em> atau rencana cadangan jika sewaktu-waktu terjadi hujan deras saat acara berlangsung. Aula juga dibutuhkan untuk sesi motivasi (in-class training) atau malam keakraban yang membutuhkan proyektor dan sound system.</li>
-    <li><strong>Kamar Mandi dan Toilet Bersih:</strong> Ini adalah fasilitas yang paling sering dikeluhkan oleh peserta jika jumlahnya tidak sebanding dengan total peserta, kotor, atau kekurangan pasokan air bersih. Rasio ideal adalah 1 toilet untuk setiap 10-15 peserta.</li>
-    <li><strong>Kapasitas Penginapan:</strong> Jika kegiatan berlangsung lebih dari satu hari (menginap/staycation), pastikan kapasitas kamar tidur, ketersediaan tempat tidur ekstra (extra bed), kualitas kasur, hingga fungsi AC dan water heater berjalan dengan baik.</li>
-    <li><strong>Fasilitas Medis (P3K):</strong> Pastikan pihak penyedia lokasi memiliki standar prosedur keselamatan (SOP), kotak P3K yang lengkap, dan jarak ke klinik kesehatan atau rumah sakit terdekat tidak terlalu jauh (di bawah 30 menit).</li>
-    <li><strong>Area Makan (Restoran/Dining Hall):</strong> Area makan harus higienis, cukup luas untuk menampung seluruh peserta sekaligus, dan memiliki sirkulasi udara yang baik.</li>
-</ul>
-
-<a href="https://wa.me/6282211221909?text=Halo%20Outbound%20Jatim%2C%20saya%20ingin%20tanya%20paket%20lokasi%20outbound" class="promo-photo" target="_blank" rel="noopener">
-    <img src="assets/img/promo-outbound-wa.webp" alt="Konsultasi Pemilihan Lokasi Outbound Gratis bersama Outbound Jatim" loading="lazy">
-    <div class="image-caption">Masih bingung memilih lokasi? Klik gambar ini untuk konsultasi GRATIS dengan tim ahli kami!</div>
-</a>
-
-<h2>4. Faktor Keamanan dan Keselamatan (Safety First)</h2>
-<p>Keamanan harus menjadi prioritas mutlak yang tidak dapat ditawar-tawar lagi (non-negotiable). Selama melakukan survei lokasi, perhatikan topografi dan kontur tanah di area lapangan outbound. Hindari lapangan yang berbatasan langsung dengan tebing curam tanpa pagar pengaman yang kokoh, atau lapangan yang struktur tanahnya berlubang-lubang dan rawan genangan air/lumpur saat hujan turun. Jika lokasi tersebut menawarkan fasilitas <em>High Ropes</em> (seperti flying fox, spider jaring, atau jembatan tali), mintalah sertifikasi uji kelayakan alat (equipment certification) dan pastikan mereka memiliki instruktur bersertifikat yang berpengalaman.</p>
-
-<p>Tanyakan juga mengenai jalur evakuasi darurat (emergency exit) dan mitigasi bencana alam, mengingat wilayah pegunungan kadang rawan terhadap cuaca ekstrem atau tanah longsor. Lokasi yang profesional selalu memiliki prosedur tanggap darurat yang jelas dan sistem pengamanan internal (security) 24 jam penuh untuk menjamin ketenangan selama beristirahat di malam hari.</p>
-
-<h2>5. Sesuaikan dengan Anggaran (Budget) Perusahaan</h2>
-<p>Anggaran seringkali menjadi faktor penentu akhir dalam pengambilan keputusan. Komunikasikan batasan budget perusahaan Anda secara transparan kepada pihak _event organizer_ (EO) atau penyedia jasa outbound sejak awal negosiasi. Jangan sampai Anda terjebak dengan biaya-biaya tersembunyi (hidden cost) yang tidak dijelaskan di awal, seperti biaya tambahan untuk sewa sound system lapangan, pajak (tax & service charge), biaya parkir bus, atau pungutan retribusi desa setempat.</p>
-
-<p>Lokasi premium (seperti hotel bintang 4 atau resort eksklusif) jelas membutuhkan alokasi dana yang lebih besar, namun sebanding dengan kenyamanan paripurna yang diberikan. Jika budget Anda terbatas, jangan berkecil hati. Banyak lokasi perkemahan modern (glamping) atau desa wisata (tourism village) di Jawa Timur yang menawarkan paket terjangkau dengan fasilitas yang sudah dikelola secara apik, bersih, dan sangat representatif untuk kegiatan berskala menengah.</p>
-
-<h2>Rekomendasi Kawasan Outbound Populer di Jawa Timur</h2>
-<p>Sebagai referensi tambahan, berikut adalah beberapa kawasan strategis di Jawa Timur yang telah menjadi primadona dan difavoritkan oleh berbagai perusahaan berskala nasional maupun multinasional untuk menyelenggarakan kegiatan corporate gathering:</p>
-
-<h3>Kawasan Batu dan Malang</h3>
-<p>Kota wisata Batu sudah lama diakui sebagai episentrum pariwisata Jawa Timur. Dengan udara yang sangat sejuk (karena berada di dataran tinggi), panorama pegunungan yang hijau memanjakan mata, serta infrastruktur pariwisata yang sangat maju, Batu menjadi pilihan utama yang sulit dikalahkan. Pilihan penginapannya sangat beragam, mulai dari hotel berbintang mewah dengan fasilitas konferensi (MICE), resort bernuansa alam tematik, hingga area perkemahan (camping ground) di kawasan Coban Rondo. Selain itu, peserta bisa disisipkan agenda wisata tambahan seperti memetik buah apel, mengunjungi Jatim Park, atau menikmati keindahan sunrise di Gunung Bromo yang bisa diakses via Malang.</p>
-
-<h3>Kawasan Trawas dan Pacet (Mojokerto)</h3>
-<p>Terletak di kaki Gunung Welirang dan Gunung Penanggungan, kawasan Trawas dan Pacet menawarkan udara yang tak kalah segar dengan nuansa pedesaan yang lebih tenang, syahdu, dan asri. Keunggulan utama kawasan ini adalah lokasinya yang relatif lebih dekat dengan kawasan industri metropolis Surabaya, Sidoarjo, dan Gresik. Waktu tempuh yang singkat membuat Trawas dan Pacet sangat ideal untuk program outbound berdurasi singkat (one day program atau 2 hari 1 malam). Selain itu, biaya sewa tempat (venue) dan akomodasi di area ini umumnya sedikit lebih miring (terjangkau) dibandingkan dengan kawasan Kota Batu, tanpa mengorbankan esensi kenyamanan beraktivitas di alam bebas.</p>
-
-<h2>Kesimpulan</h2>
-<p>Menentukan lokasi outbound terbaik adalah seni menyeimbangkan antara tujuan kegiatan, kenyamanan peserta, keamanan fasilitas, aksesibilitas logistik, dan kemampuan anggaran perusahaan. Jangan terburu-buru dalam mengambil keputusan; kumpulkan banyak referensi (quotation), baca ulasan (reviews) dari perusahaan lain, dan wajib lakukan survei secara langsung (site visit) sebelum mentransfer uang muka (down payment).</p>
-
-<p>Apabila kepanitiaan Anda merasa kewalahan atau tidak memiliki cukup waktu untuk mengurus detail-detail teknis survei dan negosiasi lokasi yang rumit, percayakanlah sepenuhnya kepada ahlinya. <strong>Outbound Jatim</strong> telah bermitra secara resmi dengan puluhan lokasi outbound premium dan terbaik yang tersebar di seluruh penjuru Jawa Timur. Kami siap merancangkan, merekomendasikan, dan mengeksekusi program _tailor-made_ yang paling sesuai, memastikan investasi perusahaan Anda memberikan _Return on Investment_ (ROI) berupa karyawan yang lebih produktif, solid, loyal, dan bahagia.</p>
-
-<div class="faq-section">
-    <h2>FAQ (Pertanyaan Seputar Lokasi Outbound)</h2>
-    <div class="faq-item">
-        <div class="faq-question" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
-            <span>1. Apakah Outbound Jatim menyediakan layanan survei lokasi secara gratis?</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-            <p>Tentu saja. Bagi klien korporat yang serius dan telah mencapai kesepakatan awal, tim kami akan mendampingi perwakilan perusahaan Anda untuk melakukan survei langsung (site visit) ke beberapa kandidat lokasi guna memastikan kelayakannya sebelum acara berlangsung.</p>
-        </div>
-    </div>
-    <div class="faq-item">
-        <div class="faq-question" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
-            <span>2. Berapa bulan idealnya kita harus mem-booking lokasi sebelum hari H?</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-            <p>Kami sangat menyarankan Anda untuk mem-booking lokasi selambat-lambatnya 2 hingga 3 bulan sebelum hari pelaksanaan (terutama jika Anda merencanakan acara di musim liburan panjang sekolah, akhir tahun, atau menjelang Lebaran). Lokasi-lokasi favorit biasanya sudah fully-booked sejak jauh-jauh hari.</p>
-        </div>
-    </div>
-    <div class="faq-item">
-        <div class="faq-question" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
-            <span>3. Apakah bisa melaksanakan outbound di pantai, bukan di pegunungan?</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-            <p>Tentu bisa! Jawa Timur juga memiliki deretan pantai yang cocok untuk kegiatan outbound, seperti area Pasir Putih Situbondo atau pantai-pantai di kawasan selatan Malang (Balekambang, Goa Cina). Namun perlu diingat bahwa cuaca di pantai lebih panas sehingga durasi permainan fisik biasanya disesuaikan agar peserta tidak dehidrasi atau kepanasan ekstrem.</p>
-        </div>
-    </div>
-</div>
-
-<div class="article-footer">
-                <div class="article-tags">
-                    <!-- Space for tags if needed -->
+                <div class="baca-juga">
+                    <strong>Baca Juga:</strong>
+                    <ul>
+                        <li><a href="manfaat-outbound-team-building.html">Manfaat Outbound untuk Team Building
+                                Perusahaan</a></li>
+                        <li><a href="persiapan-sebelum-kegiatan-outbound.html">10 Hal yang Harus Dipersiapkan Sebelum
+                                Mengikuti Kegiatan Outbound</a></li>
+                    </ul>
                 </div>
-                <div class="share-container">
-                    <span>Bagikan Artikel Ini:</span>
-                    <div class="social-share">
-                        <a href="#" class="share-wa" aria-label="Share WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="share-fb" aria-label="Share Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="share-tw" aria-label="Share Twitter"><i class="fab fa-twitter"></i></a>
+
+                <h2>3. Cek Kelengkapan Fasilitas Pendukung</h2>
+                <p>Sebagus apapun pemandangan alamnya, jika fasilitas dasar (basic amenities) tidak memadai, kegiatan
+                    outbound Anda akan berubah menjadi mimpi buruk. Panitia harus melakukan survei lokasi (technical
+                    meeting/site visit) jauh-jauh hari untuk memastikan kelengkapan dan kelayakan fasilitas berikut ini:
+                </p>
+                <ul>
+                    <li><strong>Aula atau Ruang Pertemuan (Indoor Hall):</strong> Sangat krusial sebagai <em>plan B</em>
+                        atau rencana cadangan jika sewaktu-waktu terjadi hujan deras saat acara berlangsung. Aula juga
+                        dibutuhkan untuk sesi motivasi (in-class training) atau malam keakraban yang membutuhkan
+                        proyektor dan sound system.</li>
+                    <li><strong>Kamar Mandi dan Toilet Bersih:</strong> Ini adalah fasilitas yang paling sering
+                        dikeluhkan oleh peserta jika jumlahnya tidak sebanding dengan total peserta, kotor, atau
+                        kekurangan pasokan air bersih. Rasio ideal adalah 1 toilet untuk setiap 10-15 peserta.</li>
+                    <li><strong>Kapasitas Penginapan:</strong> Jika kegiatan berlangsung lebih dari satu hari
+                        (menginap/staycation), pastikan kapasitas kamar tidur, ketersediaan tempat tidur ekstra (extra
+                        bed), kualitas kasur, hingga fungsi AC dan water heater berjalan dengan baik.</li>
+                    <li><strong>Fasilitas Medis (P3K):</strong> Pastikan pihak penyedia lokasi memiliki standar prosedur
+                        keselamatan (SOP), kotak P3K yang lengkap, dan jarak ke klinik kesehatan atau rumah sakit
+                        terdekat tidak terlalu jauh (di bawah 30 menit).</li>
+                    <li><strong>Area Makan (Restoran/Dining Hall):</strong> Area makan harus higienis, cukup luas untuk
+                        menampung seluruh peserta sekaligus, dan memiliki sirkulasi udara yang baik.</li>
+                </ul>
+
+                <a href="https://wa.me/6282211221909?text=Halo%20Outbound%20Jatim%2C%20saya%20ingin%20tanya%20paket%20lokasi%20outbound"
+                    class="promo-photo" target="_blank" rel="noopener">
+                    <img src="assets/img/promo-outbound-wa.webp"
+                        alt="Konsultasi Pemilihan Lokasi Outbound Gratis bersama Outbound Jatim" loading="lazy">
+                    <div class="image-caption">Masih bingung memilih lokasi? Klik gambar ini untuk konsultasi GRATIS
+                        dengan tim ahli kami!</div>
+                </a>
+
+                <h2>4. Faktor Keamanan dan Keselamatan (Safety First)</h2>
+                <p>Keamanan harus menjadi prioritas mutlak yang tidak dapat ditawar-tawar lagi (non-negotiable). Selama
+                    melakukan survei lokasi, perhatikan topografi dan kontur tanah di area lapangan outbound. Hindari
+                    lapangan yang berbatasan langsung dengan tebing curam tanpa pagar pengaman yang kokoh, atau lapangan
+                    yang struktur tanahnya berlubang-lubang dan rawan genangan air/lumpur saat hujan turun. Jika lokasi
+                    tersebut menawarkan fasilitas <em>High Ropes</em> (seperti flying fox, spider jaring, atau jembatan
+                    tali), mintalah sertifikasi uji kelayakan alat (equipment certification) dan pastikan mereka
+                    memiliki instruktur bersertifikat yang berpengalaman.</p>
+
+                <p>Tanyakan juga mengenai jalur evakuasi darurat (emergency exit) dan mitigasi bencana alam, mengingat
+                    wilayah pegunungan kadang rawan terhadap cuaca ekstrem atau tanah longsor. Lokasi yang profesional
+                    selalu memiliki prosedur tanggap darurat yang jelas dan sistem pengamanan internal (security) 24 jam
+                    penuh untuk menjamin ketenangan selama beristirahat di malam hari.</p>
+
+                <h2>5. Sesuaikan dengan Anggaran (Budget) Perusahaan</h2>
+                <p>Anggaran seringkali menjadi faktor penentu akhir dalam pengambilan keputusan. Komunikasikan batasan
+                    budget perusahaan Anda secara transparan kepada pihak _event organizer_ (EO) atau penyedia jasa
+                    outbound sejak awal negosiasi. Jangan sampai Anda terjebak dengan biaya-biaya tersembunyi (hidden
+                    cost) yang tidak dijelaskan di awal, seperti biaya tambahan untuk sewa sound system lapangan, pajak
+                    (tax & service charge), biaya parkir bus, atau pungutan retribusi desa setempat.</p>
+
+                <p>Lokasi premium (seperti hotel bintang 4 atau resort eksklusif) jelas membutuhkan alokasi dana yang
+                    lebih besar, namun sebanding dengan kenyamanan paripurna yang diberikan. Jika budget Anda terbatas,
+                    jangan berkecil hati. Banyak lokasi perkemahan modern (glamping) atau desa wisata (tourism village)
+                    di Jawa Timur yang menawarkan paket terjangkau dengan fasilitas yang sudah dikelola secara apik,
+                    bersih, dan sangat representatif untuk kegiatan berskala menengah.</p>
+
+                <h2>Rekomendasi Kawasan Outbound Populer di Jawa Timur</h2>
+                <p>Sebagai referensi tambahan, berikut adalah beberapa kawasan strategis di Jawa Timur yang telah
+                    menjadi primadona dan difavoritkan oleh berbagai perusahaan berskala nasional maupun multinasional
+                    untuk menyelenggarakan kegiatan corporate gathering:</p>
+
+                <h3>Kawasan Batu dan Malang</h3>
+                <p>Kota wisata Batu sudah lama diakui sebagai episentrum pariwisata Jawa Timur. Dengan udara yang sangat
+                    sejuk (karena berada di dataran tinggi), panorama pegunungan yang hijau memanjakan mata, serta
+                    infrastruktur pariwisata yang sangat maju, Batu menjadi pilihan utama yang sulit dikalahkan. Pilihan
+                    penginapannya sangat beragam, mulai dari hotel berbintang mewah dengan fasilitas konferensi (MICE),
+                    resort bernuansa alam tematik, hingga area perkemahan (camping ground) di kawasan Coban Rondo.
+                    Selain itu, peserta bisa disisipkan agenda wisata tambahan seperti memetik buah apel, mengunjungi
+                    Jatim Park, atau menikmati keindahan sunrise di Gunung Bromo yang bisa diakses via Malang.</p>
+
+                <h3>Kawasan Trawas dan Pacet (Mojokerto)</h3>
+                <p>Terletak di kaki Gunung Welirang dan Gunung Penanggungan, kawasan Trawas dan Pacet menawarkan udara
+                    yang tak kalah segar dengan nuansa pedesaan yang lebih tenang, syahdu, dan asri. Keunggulan utama
+                    kawasan ini adalah lokasinya yang relatif lebih dekat dengan kawasan industri metropolis Surabaya,
+                    Sidoarjo, dan Gresik. Waktu tempuh yang singkat membuat Trawas dan Pacet sangat ideal untuk program
+                    outbound berdurasi singkat (one day program atau 2 hari 1 malam). Selain itu, biaya sewa tempat
+                    (venue) dan akomodasi di area ini umumnya sedikit lebih miring (terjangkau) dibandingkan dengan
+                    kawasan Kota Batu, tanpa mengorbankan esensi kenyamanan beraktivitas di alam bebas.</p>
+
+                <h2>Kesimpulan</h2>
+                <p>Menentukan lokasi outbound terbaik adalah seni menyeimbangkan antara tujuan kegiatan, kenyamanan
+                    peserta, keamanan fasilitas, aksesibilitas logistik, dan kemampuan anggaran perusahaan. Jangan
+                    terburu-buru dalam mengambil keputusan; kumpulkan banyak referensi (quotation), baca ulasan
+                    (reviews) dari perusahaan lain, dan wajib lakukan survei secara langsung (site visit) sebelum
+                    mentransfer uang muka (down payment).</p>
+
+                <p>Apabila kepanitiaan Anda merasa kewalahan atau tidak memiliki cukup waktu untuk mengurus
+                    detail-detail teknis survei dan negosiasi lokasi yang rumit, percayakanlah sepenuhnya kepada
+                    ahlinya. <strong>Outbound Jatim</strong> telah bermitra secara resmi dengan puluhan lokasi outbound
+                    premium dan terbaik yang tersebar di seluruh penjuru Jawa Timur. Kami siap merancangkan,
+                    merekomendasikan, dan mengeksekusi program _tailor-made_ yang paling sesuai, memastikan investasi
+                    perusahaan Anda memberikan _Return on Investment_ (ROI) berupa karyawan yang lebih produktif, solid,
+                    loyal, dan bahagia.</p>
+
+                <div class="faq-section">
+                    <h2>FAQ (Pertanyaan Seputar Lokasi Outbound)</h2>
+                    <div class="faq-item">
+                        <div class="faq-question"
+                            onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
+                            <span>1. Apakah Outbound Jatim menyediakan layanan survei lokasi secara gratis?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tentu saja. Bagi klien korporat yang serius dan telah mencapai kesepakatan awal, tim kami
+                                akan mendampingi perwakilan perusahaan Anda untuk melakukan survei langsung (site visit)
+                                ke beberapa kandidat lokasi guna memastikan kelayakannya sebelum acara berlangsung.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"
+                            onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
+                            <span>2. Berapa bulan idealnya kita harus mem-booking lokasi sebelum hari H?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami sangat menyarankan Anda untuk mem-booking lokasi selambat-lambatnya 2 hingga 3 bulan
+                                sebelum hari pelaksanaan (terutama jika Anda merencanakan acara di musim liburan panjang
+                                sekolah, akhir tahun, atau menjelang Lebaran). Lokasi-lokasi favorit biasanya sudah
+                                fully-booked sejak jauh-jauh hari.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"
+                            onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active');">
+                            <span>3. Apakah bisa melaksanakan outbound di pantai, bukan di pegunungan?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tentu bisa! Jawa Timur juga memiliki deretan pantai yang cocok untuk kegiatan outbound,
+                                seperti area Pasir Putih Situbondo atau pantai-pantai di kawasan selatan Malang
+                                (Balekambang, Goa Cina). Namun perlu diingat bahwa cuaca di pantai lebih panas sehingga
+                                durasi permainan fisik biasanya disesuaikan agar peserta tidak dehidrasi atau kepanasan
+                                ekstrem.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Author Bio -->
-            <div class="author-bio">
-                <img src="assets/img/orang/penulis-budi.webp" alt="Budi Santoso - Penulis">
-                <div class="author-info">
-                    <h4>Budi Santoso</h4>
-                    <p>Budi adalah seorang Master Trainer tersertifikasi dengan pengalaman lebih dari 10 tahun di bidang Experiential Learning dan Pengembangan SDM. Ia secara rutin memfasilitasi kegiatan team building, leadership camp, dan capacity building untuk ratusan perusahaan berskala nasional di berbagai kota di Indonesia. Ia membagikan tips ini berdasarkan pengamatannya di lapangan.</p>
+                <div class="article-footer">
+                    <div class="article-tags">
+                        <!-- Space for tags if needed -->
+                    </div>
+                    <div class="share-container">
+                        <span>Bagikan Artikel Ini:</span>
+                        <div class="social-share">
+                            <a href="#" class="share-wa" aria-label="Share WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-fb" aria-label="Share Facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-tw" aria-label="Share Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-        </div>
+                <!-- Author Bio -->
+                <div class="author-bio">
+                    <img src="assets/img/orang/penulis-budi.webp" alt="Budi Santoso - Penulis">
+                    <div class="author-info">
+                        <h4>Budi Santoso</h4>
+                        <p>Budi adalah seorang Master Trainer tersertifikasi dengan pengalaman lebih dari 10 tahun di
+                            bidang Experiential Learning dan Pengembangan SDM. Ia secara rutin memfasilitasi kegiatan
+                            team building, leadership camp, dan capacity building untuk ratusan perusahaan berskala
+                            nasional di berbagai kota di Indonesia. Ia membagikan tips ini berdasarkan pengamatannya di
+                            lapangan.</p>
+                    </div>
+                </div>
+
+            </div>
     </section>
 
     <!-- RELATED ARTICLES -->
@@ -1151,7 +378,8 @@
                     </div>
                     <div class="artikel-content">
                         <h3>7 Manfaat Outbound Training untuk Meningkatkan Kinerja Tim</h3>
-                        <p>Pelajari bagaimana kegiatan outbound dapat meningkatkan produktivitas, kerjasama tim, dan komunikasi efektif di tempat kerja.</p>
+                        <p>Pelajari bagaimana kegiatan outbound dapat meningkatkan produktivitas, kerjasama tim, dan
+                            komunikasi efektif di tempat kerja.</p>
                         <a href="artikel.html" class="btn-read">
                             <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
                         </a>
@@ -1165,7 +393,8 @@
                     </div>
                     <div class="artikel-content">
                         <h3>Panduan Lengkap Memilih Lokasi Outbound Terbaik di Jawa Timur</h3>
-                        <p>Tips memilih lokasi outbound yang sesuai dengan kebutuhan dan budget perusahaan Anda, mulai dari fasilitas hingga aksesibilitas.</p>
+                        <p>Tips memilih lokasi outbound yang sesuai dengan kebutuhan dan budget perusahaan Anda, mulai
+                            dari fasilitas hingga aksesibilitas.</p>
                         <a href="artikel.html" class="btn-read">
                             <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
                         </a>
@@ -1175,23 +404,25 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col footer-about">
                     <h3>Outbound Jatim</h3>
-                    <p>Penyedia jasa outbound training, team building, dan corporate gathering terpercaya di Jawa Timur. Melayani dengan profesionalisme dan dedikasi tinggi sejak 2015.</p>
+                    <p>Penyedia jasa outbound training, team building, dan corporate gathering terpercaya di Jawa Timur.
+                        Melayani dengan profesionalisme dan dedikasi sejak 2015.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Facebook Outbound Jatim"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram Outbound Jatim"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube Outbound Jatim"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok Outbound Jatim"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Menu</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="index.html#beranda"><i class="fas fa-chevron-right"></i> Beranda</a></li>
                         <li><a href="about.html"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
                         <li><a href="layanan.html"><i class="fas fa-chevron-right"></i> Layanan</a></li>
                         <li><a href="lokasi.html"><i class="fas fa-chevron-right"></i> Lokasi</a></li>
@@ -1205,97 +436,50 @@
                         <li><a href="layanan.html"><i class="fas fa-chevron-right"></i> Team Building</a></li>
                         <li><a href="layanan.html"><i class="fas fa-chevron-right"></i> Family Gathering</a></li>
                         <li><a href="layanan.html"><i class="fas fa-chevron-right"></i> Paintball & Offroad</a></li>
+                        <li><a href="layanan.html"><i class="fas fa-chevron-right"></i> Camping & Survival</a></li>
+                        <li><a href="layanan.html"><i class="fas fa-chevron-right"></i> Outbound Sekolah</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Hubungi Kami</h3>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i> <span>Jl. Raya Outbound No. 123, Kota Malang, Jawa Timur</span></li>
-                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+6282211221909">0822-1122-1909</a></li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6282211221909">0822-1122-1909</a></li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Raya Outbound No. 123, Kota Malang, Jawa Timur 65112</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+6282211221909">0822-1122-1909</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/6282211221909" target="_blank" rel="noopener">0822-1122-1909</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@outboundjatim.com">info@outboundjatim.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Senin - Minggu: 07.00 - 21.00 WIB</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Outbound Jatim. All Rights Reserved. | Penyedia Jasa Outbound Terpercaya di Jawa Timur</p>
+                <p>&copy; 2026 Outbound Jatim. All Rights Reserved. | Penyedia Jasa Outbound Terpercaya di Jawa Timur
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- FLOATING BUTTONS -->
-    <a href="https://wa.me/6282211221909" class="floating-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/6282211221909" class="floating-wa" target="_blank" rel="noopener"><i
+            class="fab fa-whatsapp"></i></a>
     <button class="floating-top" id="floatingTop"><i class="fas fa-chevron-up"></i></button>
 
-    <script>
-        // Hamburger & Nav
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        const navOverlay = document.getElementById('navOverlay');
-        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); navOverlay.classList.toggle('active'); document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : ''; });
-        navOverlay.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); navOverlay.classList.remove('active'); document.body.style.overflow = ''; });
-        
-        // Floating Top
-        const floatingTop = document.getElementById('floatingTop');
-        window.addEventListener('scroll', () => { if(window.scrollY > 500) floatingTop.classList.add('visible'); else floatingTop.classList.remove('visible'); });
-        floatingTop.addEventListener('click', () => { window.scrollTo({top: 0, behavior: 'smooth'}); });
-        window.addEventListener('scroll', () => { const navbar = document.querySelector('.navbar'); if(window.scrollY > 50) navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.12)'; else navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)'; });
 
-        // Auto TOC Generation
-        document.addEventListener('DOMContentLoaded', () => {
-            const articleBody = document.querySelector('.article-body');
-            const tocList = document.getElementById('tocList');
-            const headings = articleBody.querySelectorAll('h2, h3');
-            
-            if (headings.length > 0) {
-                headings.forEach((heading, index) => {
-                    const anchorId = 'heading-' + index;
-                    heading.id = anchorId;
-                    
-                    const li = document.createElement('li');
-                    const a = document.createElement('a');
-                    a.href = '#' + anchorId;
-                    a.textContent = heading.textContent;
-                    
-                    if (heading.tagName.toLowerCase() === 'h3') {
-                        a.classList.add('toc-h3');
-                    }
-                    
-                    li.appendChild(a);
-                    tocList.appendChild(li);
-                });
-            } else {
-                document.querySelector('.toc-container').style.display = 'none';
-            }
-        });
-
-        // TOC Toggle
-        const tocToggleBtn = document.getElementById('tocToggleBtn');
-        const tocContent = document.getElementById('tocContent');
-        const tocIcon = tocToggleBtn.querySelector('.toc-toggle');
-        
-        tocToggleBtn.addEventListener('click', () => {
-            tocContent.classList.toggle('collapsed');
-            tocIcon.classList.toggle('collapsed');
-        });
-
-        // FAQ Toggle
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-                
-                // Close all
-                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
-                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
-                
-                // Open clicked if not previously active
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
