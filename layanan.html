@@ -36,14 +36,24 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="assets/img/galeri/layanan-paintball-dan-offroad.webp">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    </noscript>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </noscript>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -98,7 +108,7 @@
             <!-- Layanan 1 -->
             <div class="layanan-item">
                 <div class="layanan-image">
-                    <img src="assets/img/galeri/layanan-outbound-training.webp" alt="Outbound Training" loading="lazy">
+                    <img src="assets/img/galeri/layanan-outbound-training.webp" alt="Outbound Training" loading="lazy" width="800" height="533">
                 </div>
                 <div class="layanan-info">
                     <h3>Outbound Training</h3>
@@ -126,7 +136,7 @@
             <div class="layanan-item">
                 <div class="layanan-image">
                     <img src="assets/img/galeri/layanan-team-building-corporate.webp" alt="Team Building Corporate"
-                        loading="lazy">
+                        loading="lazy" width="800" height="533">
                 </div>
                 <div class="layanan-info">
                     <h3>Team Building Corporate</h3>
@@ -153,7 +163,7 @@
             <!-- Layanan 3 -->
             <div class="layanan-item">
                 <div class="layanan-image">
-                    <img src="assets/img/galeri/layanan-family-gathering.webp" alt="Family Gathering" loading="lazy">
+                    <img src="assets/img/galeri/layanan-family-gathering.webp" alt="Family Gathering" loading="lazy" width="800" height="533">
                 </div>
                 <div class="layanan-info">
                     <h3>Family Gathering</h3>
@@ -180,7 +190,7 @@
             <!-- Layanan 4 -->
             <div class="layanan-item">
                 <div class="layanan-image">
-                    <img src="assets/img/galeri/paket-layanan-offroad.webp" alt="Paintball & Offroad" loading="lazy">
+                    <img src="assets/img/galeri/paket-layanan-offroad.webp" alt="Paintball & Offroad" loading="lazy" width="800" height="533">
                 </div>
                 <div class="layanan-info">
                     <h3>Paintball & Offroad</h3>
@@ -208,7 +218,7 @@
             <div class="layanan-item">
                 <div class="layanan-image">
                     <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800"
-                        alt="Camping & Survival" loading="lazy">
+                        alt="Camping & Survival" loading="lazy" width="800" height="533">
                 </div>
                 <div class="layanan-info">
                     <h3>Camping & Survival</h3>
@@ -235,7 +245,7 @@
             <!-- Layanan 6 -->
             <div class="layanan-item">
                 <div class="layanan-image">
-                    <img src="assets/img/galeri/layanan-outbound-sekolah.webp" alt="Outbound Sekolah" loading="lazy">
+                    <img src="assets/img/galeri/layanan-outbound-sekolah.webp" alt="Outbound Sekolah" loading="lazy" width="800" height="533">
                 </div>
                 <div class="layanan-info">
                     <h3>Outbound Sekolah</h3>
@@ -460,7 +470,7 @@
     </button>
 
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 
 </html>
